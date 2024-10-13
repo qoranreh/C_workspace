@@ -17,10 +17,10 @@ int main(void) {
 	strcpy(DataCase.c2, "No, my name is Rob.");
 	strcpy(DataCase.c3,"Hello, Rob.");
 	strcpy(DataCase.c4, "A thief named hong gil dong lived with friends named hong gil don and hong gil ja in a village named hong gil dong villang.");
-	strcpy(DataCase.c5, "A thief named hong gil dong lived with friends named hong gil don and hong gil ja and hhhong gil dong and kong gil dong and honggil dong and hong gil donggg in a village named hong gil dong village.");
+	strcpy(DataCase.c5, "A thief named .hong gil dong. lived with friends named hong gil don and hong gil ja and hh.hong gil dong. and kong gil dong and .hong gil dong. and hong gil donggg in a village named .hong gil dong. village.");
 	strcpy(DataCase.s1, "name");
 	strcpy(DataCase.s2, "hong gil dong");
-	char coursor = 0;
+	int coursor = 0;
 	int count = 0;
 	int searchTrue = 0;
 	char Data[Max2];//String저장 
@@ -53,13 +53,13 @@ int main(void) {
 		else if (j == 4)
 		{
 			strcpy(Data, DataCase.c5);
+			printf("%s\n", Data);
 			strcpy(SearchStr, DataCase.s2);
 		}
-		printf("%s\n", Data);
-		printf("%s\n", SearchStr);
+		
 		while (Data[coursor] != '\0') {//문장 끝날때까지 반복. 
 			if (Data[coursor] == SearchStr[0]) {//첫글자 판별 
-				printf("%c\n", (Data[coursor]));
+				printf("\nfirst: %c,", (Data[coursor]));
 				//windowsearch 시작 
 				for (int i = 0; i < strlen(SearchStr); i++) {//4번반복. 
 					//4번다 맞을 경우 반복 종료 후 결과 출력. 
@@ -70,7 +70,7 @@ int main(void) {
 					// 안맞을 경우
 					// name
 					//아예 x 
-
+					//
 					else
 					{
 						searchTrue = 0;
