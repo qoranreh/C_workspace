@@ -1,7 +1,8 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
 #define Max 50
-#define Max2 300
+#define Max2 500
 
 //입력데이터 저장. 
 struct datacase{
@@ -22,7 +23,7 @@ int main(void) {
 	char coursor = 0;
 	int count = 0;
 	int searchTrue = 0;
-	char Data[Max];//String저장 
+	char Data[Max2];//String저장 
 	char SearchStr[Max];//search String 저장 
 
 	for(int j=0;j<5;j++)
@@ -37,6 +38,7 @@ int main(void) {
 		{
 			strcpy(Data, DataCase.c2);
 			strcpy(SearchStr, DataCase.s1);
+			
 		}
 		else if (j==2)
 		{
@@ -53,15 +55,17 @@ int main(void) {
 			strcpy(Data, DataCase.c5);
 			strcpy(SearchStr, DataCase.s2);
 		}
-
-		while (Data[coursor] != "\0") {//문장 끝날때까지 반복. 
-			if (Data[coursor] == 'n') {//첫글자 판별 
-
+		printf("%s\n", Data);
+		printf("%s\n", SearchStr);
+		while (Data[coursor] != '\0') {//문장 끝날때까지 반복. 
+			if (Data[coursor] == SearchStr[0]) {//첫글자 판별 
+				printf("%c\n", (Data[coursor]));
 				//windowsearch 시작 
 				for (int i = 0; i < strlen(SearchStr); i++) {//4번반복. 
 					//4번다 맞을 경우 반복 종료 후 결과 출력. 
 					if (Data[coursor + i] == SearchStr[i]) {
 						searchTrue = 1;
+						printf("%c", (Data[coursor + i]));
 					}
 					// 안맞을 경우
 					// name
@@ -85,7 +89,10 @@ int main(void) {
 			coursor++;
 		}
 
-		printf("%d\n", count);
+		printf("Result %d: %d\n",j+1, count);
+		count = 0;//count초기화
+		//coursor 초기화 
+		coursor = 0;
 	}
 	return 0;
 }
