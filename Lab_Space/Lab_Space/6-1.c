@@ -53,19 +53,16 @@ int main(void) {
 		else if (j == 4)
 		{
 			strcpy(Data, DataCase.c5);
-			printf("%s\n", Data);
 			strcpy(SearchStr, DataCase.s2);
 		}
 		
 		while (Data[coursor] != '\0') {//문장 끝날때까지 반복. 
 			if (Data[coursor] == SearchStr[0]) {//첫글자 판별 
-				printf("\nfirst: %c,", (Data[coursor]));
 				//windowsearch 시작 
 				for (int i = 0; i < strlen(SearchStr); i++) {//4번반복. 
 					//4번다 맞을 경우 반복 종료 후 결과 출력. 
 					if (Data[coursor + i] == SearchStr[i]) {
 						searchTrue = 1;
-						printf("%c", (Data[coursor + i]));
 					}
 					// 안맞을 경우
 					// name
